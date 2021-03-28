@@ -19,7 +19,7 @@ router.post("/", async (req, res) => {
     if (password.length < 6) {
       return res.status(400)
       .json({
-        errorMessage: "Please enter atleast 6 characters."
+        errorMessage: "Please enter atleast 6 characters for the password."
       })
     }
 
@@ -58,7 +58,7 @@ router.post("/", async (req, res) => {
       httpOnly: true,
     }).send();
   } catch (err) {
-    console.err(err);
+    console.error(err);
     res.status(500).send();
   }
 });
@@ -103,7 +103,7 @@ router.post("/login", async (req, res) => {
     }).send();
 
   } catch (err) {
-    console.err(err);
+    console.error(err);
     res.status(500).send();
   }
 });

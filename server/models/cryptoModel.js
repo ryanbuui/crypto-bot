@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const cryptoSchema = new mongoose.Schema({
-  name: { tpye: String, required: true },
+  name: { type: String, required: true },
 });
 
 const Crypto = mongoose.model("crypto", cryptoSchema);
