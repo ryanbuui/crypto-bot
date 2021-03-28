@@ -4,6 +4,7 @@ const rp = require('request');
 router.get("/", async (req, res) => {
     try {
         let crypto = [];
+
         const requestOptions = {
           method: 'GET',
           uri: 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest',
@@ -18,19 +19,19 @@ router.get("/", async (req, res) => {
           json: true,
           gzip: true
         };
-    
+
         rp(requestOptions, function (err,response,html) {
           if(!err && response.statusCode === 200){
             crypto = response.body.data;
+            res.json(JSON.stringify(crypto));
           }else{
-            console.log('API call error:', err.message);    
+            console.log('API call error:', err);    
           }
-    
         });
-        
-        res.json(JSON.stringify(crypto));
       } catch (err) {
         console.error(err);
         res.status(500).send();
       }
 });
+
+module.exports = router;
