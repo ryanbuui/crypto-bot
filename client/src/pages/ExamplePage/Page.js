@@ -1,9 +1,16 @@
 import React, { Component } from 'react'
 import CryptoList from "../../components/CryptoList";
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import "./Page.css";
 
 const Page = () => {
+
+  useEffect(() => {
+    fetch("http://localhost:5000/coins/", {method: "GET"})
+    .then(res => res.json())
+    .then(data => console.log(data));
+  }, [])
+
   const [cryptos, setCryptos] = useState([
     {
         id: 1,
@@ -29,17 +36,17 @@ const Page = () => {
     <div>
         <div id="title">CryptoBot</div>
         <div id="searchbar">
-          <div class="search" id="search-txt">Enter Crypto Name: </div>
-          <div class="search"><input id="crypto-name"></input></div>
+          <div className="search" id="search-txt">Enter Crypto Name: </div>
+          <div className="search"><input id="crypto-name"></input></div>
           <button id="button">Search</button>
         </div>
         <div id="list">
           <div id="list-title">Selected Currencies</div>
           <div id="cryptos">
             <div id="col-titles">
-              <div class="col-title" id="name">Name</div>
-              <div class="col-title" id="price">Price</div>
-              <div class="col-title" id="hr24">24hr Change</div>
+              <div className="col-title" id="name">Name</div>
+              <div className="col-title" id="price">Price</div>
+              <div className="col-title" id="hr24">24hr Change</div>
             </div>
             {cryptos.length > 0 ? (<CryptoList cryptos={cryptos} onDelete={deleteCrypto} />) : ( 'No Cryptos Selected' ) }
           </div>
