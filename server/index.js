@@ -25,3 +25,4 @@ mongoose.connect(process.env.MDB_CONNECT, {
 // Set up routes
 app.use("/auth", require("./routers/userRouter"));
 app.use("/crypto", require("./routers/cryptoRouter"));
+app.use("/coins", require("./routers/fetchRouter"));
