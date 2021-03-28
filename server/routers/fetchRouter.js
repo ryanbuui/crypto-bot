@@ -10,7 +10,7 @@ router.get("/", async (req, res) => {
           uri: 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest',
           qs: {
             'start': '1',
-            'limit': '5',
+            'limit': '100',
             'convert': 'USD'
           },
           headers: {

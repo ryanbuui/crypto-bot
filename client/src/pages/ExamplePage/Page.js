@@ -15,48 +15,36 @@ const Page = () => {
     fetch("http://localhost:5000/coins/", {method: "GET"})
     .then(res => res.json())
     .then(data => setSearch(JSON.parse(data)));
-    console.log("using effect")
-    console.log(search)
   }, [])
-  
-  /*const [cryptos, setCryptos] = useState([
-    {
-        id: 1,
-        text: 'Crypto 1',
-        price: '$99999',
-        percentage: '10%'
-    },
-    {
-        id: 2,
-        text: 'Crypto 2',
-        price: '$89999',
-        percentage: '15%'
-    },
-  ])*/
-
 
   //Add Crypto
   function addCrypto(){
-    const newList = cryptos.concat({text: input, price: '$87', percentage:'978%'});
-    setCryptos(newList);
-    //TODO deal with duplicates
+    const val = search.find( (c)=> c.name === input);
+    if(val === undefined){
+      console.log("Element not found")
+      return;
+    }
+    if(cryptos.find( (c)=>c.text === input) !== undefined){
+      console.log("Duplicate")
+      return;
+    } 
+
+    setCryptos(cryptos.concat({text:val.name, price:val.quote.USD.price, percentage:val.quote.USD.percent_change_24h}));
   }
 
-  //Delete Crypto
-  const deleteCrypto = (id) => {
-    setCryptos(cryptos.filter((crypto) => crypto.id !== id));
+  //Delete 
+  const deleteCrypto = (text) => {
+    setCryptos(cryptos.filter((crypto) => crypto.text !== text));
   }
 
   let searchResults = []
   if(input.length > 0){
-    // showing = true;
     searchResults = search.filter((i) => {
       return i.name.toLowerCase().match(input);
     })
   }
   else{
     searchResults = [];
-    // showing = false;
   }
   return (
     <div>
@@ -66,7 +54,7 @@ const Page = () => {
           <div className="search" id="search-txt">Enter Crypto Name: </div>
             <input type="text" placeholder="Searching..." onChange={(e) => {setInput(e.target.value)}} value={input} id="crypto-name"></input>
             <button type="submit" id="button" onClick={addCrypto}>Add</button>
-            <ul /*style={{display: (showing ? 'block' : 'none')}}*/ className="search-list">
+            <ul className="search-list">
               {searchResults.map((element, index) => {
                 return(<div key={index}>
                     <li id="list-item" onClick={function(){setInput(element.name); showing=false;}} >
@@ -94,5 +82,3 @@ const Page = () => {
 }
 
 export default Page;
-
-//hello

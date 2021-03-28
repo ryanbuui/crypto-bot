@@ -5,7 +5,7 @@ const CryptoList = ({ cryptos, onDelete }) => {
     return (
         <div id="container">
             {cryptos.map((crypto) => (
-            <Crypto key={crypto.id} crypto={crypto} onDelete={onDelete}/>
+            <Crypto key={crypto.text} crypto={crypto} onDelete={onDelete}/>
             ))}
         </div>
     )
