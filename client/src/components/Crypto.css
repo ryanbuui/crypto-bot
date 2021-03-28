@@ -1,0 +1,24 @@
+.crypto{
+    display: inline-flex;
+    margin-bottom: 5px;
+    border: 1px solid grey;
+    padding: 5px;
+}
+
+p{
+    margin-left: 5px;
+}
+
+#delete{
+    width: 25px;
+    height: 25px;
+    margin-left: 25px;
+    text-align: center;
+    background-color: rgb(241, 132, 131);
+    border-radius: 15px;
+    color: white;
+  }
+
+#x{
+    margin: 3px;
+}

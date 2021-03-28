@@ -1,0 +1,81 @@
+* {
+  padding: 0;
+  margin: 0;
+  font-size: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#title {
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom:20px;
+  text-align: center;
+  font-size: 28px;
+  width: 130px;
+  font-weight: bolder;
+}
+
+#searchbar{
+  margin: auto;
+  width: 720px;
+  margin-bottom: 10px;
+}
+
+.search{
+  margin: 5px;
+  display: inline-flex;
+}
+
+#crypto-name{
+  width:400px;
+}
+
+#button{
+  width:100px;
+  margin: auto;
+  border-radius: 15px;
+  height: 30px;
+}
+
+#col-titles{
+  margin:5px;
+  font-weight: bold;
+}
+
+.col-title{
+  display: inline-flex;
+  margin-left:5px;
+}
+
+#list{
+  padding:fit-content;
+  border:solid black 2px;
+  width: 850px;
+  margin:auto;
+}
+
+#name{
+  width:350px;
+}
+
+#price{
+  width:250px;
+}
+
+#hr24{
+  width:150px;
+}
+
+#list-title{
+  font-size: 24px;
+  width:230px;
+  text-align: center;
+  margin:auto;
+  margin-top:5px;
+  margin-bottom:5px;
+}
+
+div{
+  padding:fit-content;
+  /* border:1px solid grey; */
+}
