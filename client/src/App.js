@@ -1,11 +1,15 @@
 import React from "react";
-import Page from "./pages/ExamplePage/Page";
+import Router from "./Router";
+import axios from "axios";
+import { AuthContextProvider } from "./context/AuthContext";
+
+axios.defaults.withCredentials = true;
 
 function App() {
   return (
-    <>
-      <Page />
-    </>
+    <AuthContextProvider>
+      <Router />
+    </AuthContextProvider>
   );
 }
 

@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import CryptoList from "../../components/CryptoList";
 import { useState, useEffect } from 'react';
 import "./Page.css";
